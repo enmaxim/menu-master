@@ -1,0 +1,63 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url(img/fondoformulario.jpg);
+   
+}
+
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: rgb(0, 0, 0);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    background-color: rgba(240, 248, 255, 0.511);
+    text-align: center;
+
+    
+}
+
+label {
+    margin-bottom: 5px;
+}
+
+input, button {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+form a{
+    cursor: pointer;
+    background-color: #416f1a; /* Color de fondo del botón */
+    color: #fff; /* Color del texto del botón */
+    border: none;
+    display:flex;
+    padding: .50rem;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+   
+
+}
+
+ 
+form a:hover {
+    text-align: center;
+    background-color: #0056b3; /* Cambio de color al pasar el ratón sobre el botón */
+}
+
+.a{
+     /* Centrar horizontalmente el contenido */
+    justify-items: center;
+    text-align: center;
+} 

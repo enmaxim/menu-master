@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MENU MASTER</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Revolution&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/BACKEND/estilo.seccionmesas.css">
+</head>
+<body>    
+    <header>
+        <div class="header-container">
+            <h1>MENU MASTER</h1>
+        </div>
+    
+        <nav>
+            <ul>
+                <li><a href="/pagina2">Inicio</a></li>
+                <li><a href="#">Productos</a></li>
+                <li><a href="#">Servicios</a> </li>        
+                <li><a href="#">Contacto</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+    
+    
+<style>
+    /* Estilos CSS */
+    #mesas {
+        text-align: center;
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        grid-gap: 10px;
+    }
+
+    .mesa {
+        background-color: rgba(232, 16, 16, 0.886);
+        padding: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease; /* Agregamos transición de color */
+    }
+
+    .mesa:hover {
+        background-color: skyblue;
+    }
+
+    .mesa.abierta { /* Agregamos estilo para la mesa abierta */
+        background-color: lightgreen;
+    }
+
+    .mesa-actions {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .mesa-actions button {
+        margin: 5px;
+    }
+</style>
+</head>
+
+<body>
+<section id="mesas">
+    <h2 class="titulo">MESAS</h2>
+    
+    <div class="grid-container">
+        <div class="grid-item mesa" id="mesa1">MESA 1</div>
+        <div class="grid-item mesa" id="mesa2">MESA 2</div>
+        <div class="grid-item mesa" id="mesa3">MESA 3</div>
+        <div class="grid-item mesa" id="mesa4">MESA 4</div>
+        <div class="grid-item mesa" id="mesa5">MESA 5</div>
+        <div class="grid-item mesa" id="mesa6">MESA 6</div>
+        <div class="grid-item mesa" id="mesa7">MESA 7</div>
+        <div class="grid-item mesa" id="mesa8">MESA 8</div>
+        <div class="grid-item mesa" id="mesa9">MESA 9</div>
+        <div class="grid-item mesa" id="mesa10">MESA 10</div>
+        <div class="grid-item mesa" id="mesa11">MESA 11</div>
+        <div class="grid-item mesa" id="mesa12">MESA 12</div>
+        <div class="grid-item mesa" id="mesa13">MESA 13</div>
+        <div class="grid-item mesa" id="mesa14">MESA 14</div>
+        <div class="grid-item mesa" id="mesa15">MESA 15</div>
+        <div class="grid-item mesa" id="mesa16">MESA 16</div>
+        <div class="grid-item mesa" id="mesa17">MESA 17</div>
+        <div class="grid-item mesa" id="mesa18">MESA 18</div>
+        <div class="grid-item mesa" id="mesa19">MESA 19</div>
+        <div class="grid-item mesa" id="mesa20">MESA 20</div>
+        <div class="grid-item mesa" id="mesa21">MESA 21</div>
+        <div class="grid-item mesa" id="mesa22">MESA 22</div>
+        <div class="grid-item mesa" id="mesa23">MESA 23</div>
+        <div class="grid-item mesa" id="mesa24">MESA 24</div>
+        <div class="grid-item mesa" id="mesa25">MESA 25</div>
+        <div class="grid-item mesa" id="mesa26">MESA 26</div>
+        <div class="grid-item mesa" id="mesa27">MESA 27</div>
+        <div class="grid-item mesa" id="mesa28">MESA 28</div>
+        <div class="grid-item mesa" id="mesa29">MESA 29</div>
+        <div class="grid-item mesa" id="mesa30">MESA 30</div>
+        <div class="grid-item mesa" id="mesa31">MESA 31</div>
+        <div class="grid-item mesa" id="mesa32">MESA 32</div>
+        <div class="grid-item mesa" id="mesa33">MESA 33</div>
+        <div class="grid-item mesa" id="mesa34">MESA 34</div>
+        <div class="grid-item mesa" id="mesa35">MESA 35</div>
+        <div class="grid-item mesa" id="mesa36">MESA 36</div>
+        <div class="grid-item mesa" id="mesa37">MESA 37</div>
+        <div class="grid-item mesa" id="mesa38">MESA 38</div>
+        <div class="grid-item mesa" id="mesa39">MESA 39</div>
+        <div class="grid-item mesa" id="mesa40">MESA 40</div>
+        <div class="grid-item mesa" id="mesa41">MESA 41</div>
+        <div class="grid-item mesa" id="mesa42">MESA 42</div>
+        <div class="grid-item mesa" id="mesa43">MESA 43</div>
+        <div class="grid-item mesa" id="mesa44">MESA 44</div>
+        <div class="grid-item mesa" id="mesa45">MESA 45</div>
+        <!-- Repite para las demás mesas -->
+    </div>
+</section>
+
+<div class="mesa-actions">
+    <button onclick="abrirMesa()">ABRIR MESA</button>
+    <button onclick="facturarMesa()">FACTURAR MESA</button>
+    <button onclick="modificarMesa()">MODIFICAR MESA</button>
+    <button onclick="borrarMesa()">BORRAR MESA</button>
+    <button onclick="cerrarMesa()">CERRAR MESA</button>
+    <button onclick="agregarMesa()">AGREGAR MESA</button>
+    <button onclick="unirMesas()">UNIR MESAS</button>
+    <button onclick="dividirMesas()">DIVIDIR MESAS</button>
+</div>
+
+<script>
+    // Funciones para las acciones de las mesas
+    
+    // Función para abrir la mesa
+    function abrirMesa() {
+        var selectedMesa = document.querySelector('.mesa.con-pedido');
+        if (selectedMesa) {
+            var mesaId = selectedMesa.id;
+            console.log("Abrir la mesa: " + mesaId);
+            selectedMesa.classList.add('abierta');
+            document.querySelectorAll('.mesa').forEach(m => m.classList.remove('con-pedido'));
+            // Redirigir a otra ventana pasando el ID de la mesa como parámetro
+            window.open("mesas?mesaId=" + mesaId, "_blank");
+        } else {
+            console.log("Debes seleccionar una mesa antes de abrir.");
+        }
+    }
+
+    // Resto de funciones omitidas por brevedad
+
+    // Obtener todas las mesas
+    const mesas = document.querySelectorAll('.mesa');
+
+    // Agregar un evento de clic a cada mesa
+    mesas.forEach(mesa => {
+        mesa.addEventListener('click', () => {
+            // Remover la clase 'con-pedido' de todas las mesas
+            mesas.forEach(m => m.classList.remove('con-pedido'));
+            // Agregar la clase 'con-pedido' a la mesa clickeada
+            mesa.classList.add('con-pedido');
+        });
+    });
+
+
+    // Función para facturar la mesa
+// Función para facturar la mesa
+function facturarMesa() {
+    var selectedMesa = document.querySelector('.mesa.abierta');
+    if (selectedMesa) {
+        var mesaId = selectedMesa.id;
+        console.log("Facturar la mesa: " + mesaId);
+        
+        // Obtener todos los productos en la mesa
+        var productos = selectedMesa.querySelectorAll('.producto');
+        
+        // Mostrar los detalles de cada producto
+        productos.forEach(producto => {
+            var nombre = producto.dataset.nombre;
+            var precio = parseFloat(producto.dataset.precio);
+            console.log("Producto: " + nombre + ", Precio: $" + precio.toFixed(2));
+        });
+        
+        // Calcular el total
+        var total = calcularTotal(selectedMesa);
+        
+        // Generar factura
+        generarFactura(mesaId, total);
+        
+        // Cerrar la mesa
+        cerrarMesa(selectedMesa);
+    } else {
+        console.log("No hay ninguna mesa abierta para facturar.");
+    }
+}
+
+function modificarMesa(mesaId, nuevosDatos) {
+    // Consultar la mesa actual en la base de datos para obtener sus datos actuales
+    const consulta = "SELECT * FROM Mesas WHERE id_mesa = ?";
+    conexion.query(consulta, [mesaId], (error, resultados) => {
+        if (error) {
+            console.error("Error al consultar la mesa:", error);
+            return;
+        }
+
+        // Verificar si se encontró la mesa
+        if (resultados.length === 0) {
+            console.log("No se encontró la mesa con el ID especificado.");
+            return;
+        }
+
+        // Obtener los datos actuales de la mesa
+        const mesaActual = resultados[0];
+
+        // Aplicar los cambios proporcionados por el usuario
+        const nuevosDatosMesa = {
+            nombre: nuevosDatos.nombre || mesaActual.nombre,
+            capacidad: nuevosDatos.capacidad || mesaActual.capacidad,
+            estado: nuevosDatos.estado || mesaActual.estado
+            // Agregar más campos aquí según sea necesario
+        };
+
+        // Ejecutar una consulta SQL para actualizar los datos de la mesa en la base de datos
+        const actualizarConsulta = "UPDATE Mesas SET nombre = ?, capacidad = ?, estado = ? WHERE id_mesa = ?";
+        const valores = [nuevosDatosMesa.nombre, nuevosDatosMesa.capacidad, nuevosDatosMesa.estado, mesaId];
+        conexion.query(actualizarConsulta, valores, (error, resultados) => {
+            if (error) {
+                console.error("Error al actualizar la mesa:", error);
+                return;
+            }
+
+            console.log("Mesa actualizada correctamente.");
+        });
+    });
+}
+
+function borrarMesa(mesaId) {
+    // Ejecutar una consulta SQL para eliminar la mesa de la base de datos
+    const consulta = "DELETE FROM Mesas WHERE id_mesa = ?";
+    conexion.query(consulta, [mesaId], (error, resultados) => {
+        if (error) {
+            console.error("Error al intentar borrar la mesa:", error);
+            return;
+        }
+
+        // Verificar si se eliminó correctamente la mesa
+        if (resultados.affectedRows === 0) {
+            console.log("No se encontró la mesa con el ID especificado.");
+            return;
+        }
+
+        console.log("Mesa borrada correctamente.");
+    });
+}
+function cerrarMesa(mesaId) {
+    // Consultar el estado actual de la mesa en la base de datos
+    const consultaEstado = "SELECT estado FROM Mesas WHERE id_mesa = ?";
+    conexion.query(consultaEstado, [mesaId], (error, resultados) => {
+        if (error) {
+            console.error("Error al consultar el estado de la mesa:", error);
+            return;
+        }
+
+        // Verificar si se encontró la mesa
+        if (resultados.length === 0) {
+            console.log("No se encontró la mesa con el ID especificado.");
+            return;
+        }
+
+        const estadoMesa = resultados[0].estado;
+
+        // Verificar si la mesa ya está cerrada
+        if (estadoMesa === "cerrada") {
+            console.log("La mesa ya está cerrada.");
+            return;
+        }
+
+        // Ejecutar una consulta SQL para cambiar el estado de la mesa a "cerrada"
+        const consultaCerrarMesa = "UPDATE Mesas SET estado = 'cerrada' WHERE id_mesa = ?";
+        conexion.query(consultaCerrarMesa, [mesaId], (error, resultados) => {
+            if (error) {
+                console.error("Error al intentar cerrar la mesa:", error);
+                return;
+            }
+
+            console.log("Mesa cerrada correctamente.");
+        });
+    });
+}
+
+function agregarMesa(nuevaMesa) {
+    // Validar los datos de la nueva mesa
+    if (!nuevaMesa.nombre || !nuevaMesa.capacidad) {
+        console.error("Nombre y capacidad de la mesa son obligatorios.");
+        return;
+    }
+
+    // Ejecutar una consulta SQL para insertar la nueva mesa en la base de datos
+    const consulta = "INSERT INTO Mesas (nombre, capacidad, estado) VALUES (?, ?, ?)";
+    const valores = [nuevaMesa.nombre, nuevaMesa.capacidad, nuevaMesa.estado || 'cerrada']; // Estado predeterminado: cerrada
+    conexion.query(consulta, valores, (error, resultados) => {
+        if (error) {
+            console.error("Error al intentar agregar la nueva mesa:", error);
+            return;
+        }
+
+        console.log("Nueva mesa agregada correctamente.");
+    });
+}
+function unirMesas(mesaId1, mesaId2) {
+    // Consultar el estado actual de ambas mesas en la base de datos
+    const consultaEstadoMesa1 = "SELECT estado FROM Mesas WHERE id_mesa = ?";
+    conexion.query(consultaEstadoMesa1, [mesaId1], (error, resultados1) => {
+        if (error) {
+            console.error("Error al consultar el estado de la primera mesa:", error);
+            return;
+        }
+
+        const estadoMesa1 = resultados1.length > 0 ? resultados1[0].estado : null;
+
+        // Verificar si se encontró la primera mesa
+        if (!estadoMesa1) {
+            console.log("No se encontró la primera mesa con el ID especificado.");
+            return;
+        }
+
+        // Consultar el estado actual de la segunda mesa en la base de datos
+        const consultaEstadoMesa2 = "SELECT estado FROM Mesas WHERE id_mesa = ?";
+        conexion.query(consultaEstadoMesa2, [mesaId2], (error, resultados2) => {
+            if (error) {
+                console.error("Error al consultar el estado de la segunda mesa:", error);
+                return;
+            }
+
+            const estadoMesa2 = resultados2.length > 0 ? resultados2[0].estado : null;
+
+            // Verificar si se encontró la segunda mesa
+            if (!estadoMesa2) {
+                console.log("No se encontró la segunda mesa con el ID especificado.");
+                return;
+            }
+
+            // Verificar que ambas mesas estén abiertas
+            if (estadoMesa1 !== 'abierta' || estadoMesa2 !== 'abierta') {
+                console.log("Ambas mesas deben estar abiertas para unirlas.");
+                return;
+            }
+
+            // Ejecutar una consulta SQL para unir las mesas
+            const consultaUnirMesas = "UPDATE Pedidos SET id_mesa = ? WHERE id_mesa = ?";
+            conexion.query(consultaUnirMesas, [mesaId1, mesaId2], (error, resultados) => {
+                if (error) {
+                    console.error("Error al intentar unir las mesas:", error);
+                    return;
+                }
+
+                console.log("Mesas unidas correctamente.");
+
+                // Eliminar la segunda mesa unida de la base de datos
+                const consultaEliminarMesa2 = "DELETE FROM Mesas WHERE id_mesa = ?";
+                conexion.query(consultaEliminarMesa2, [mesaId2], (error, resultados) => {
+                    if (error) {
+                        console.error("Error al intentar eliminar la segunda mesa:", error);
+                        return;
+                    }
+
+                    console.log("Segunda mesa eliminada correctamente.");
+                });
+            });
+        });
+    });
+}
+
+function dividirMesas(mesaId, nuevosPedidos) {
+    // Consultar el estado actual de la mesa en la base de datos
+    const consultaEstadoMesa = "SELECT estado FROM Mesas WHERE id_mesa = ?";
+    conexion.query(consultaEstadoMesa, [mesaId], (error, resultados) => {
+        if (error) {
+            console.error("Error al consultar el estado de la mesa:", error);
+            return;
+        }
+
+        const estadoMesa = resultados.length > 0 ? resultados[0].estado : null;
+
+        // Verificar si se encontró la mesa
+        if (!estadoMesa) {
+            console.log("No se encontró la mesa con el ID especificado.");
+            return;
+        }
+
+        // Verificar que la mesa esté abierta
+        if (estadoMesa !== 'abierta') {
+            console.log("La mesa debe estar abierta para dividirla.");
+            return;
+        }
+
+        // Ejecutar consultas SQL para crear nuevos pedidos para la segunda mesa
+        nuevosPedidos.forEach(nuevoPedido => {
+            const consultaNuevoPedido = "INSERT INTO Pedidos (id_mesa, id_producto, cantidad, estado) VALUES (?, ?, ?, ?)";
+            const valores = [nuevoPedido.idMesa, nuevoPedido.idProducto, nuevoPedido.cantidad, nuevoPedido.estado || 'pendiente']; // Estado predeterminado: pendiente
+            conexion.query(consultaNuevoPedido, valores, (error, resultados) => {
+                if (error) {
+                    console.error("Error al intentar crear un nuevo pedido:", error);
+                    return;
+                }
+
+                console.log("Nuevo pedido creado correctamente para la segunda mesa.");
+            });
+        });
+
+        // Opcionalmente, puedes actualizar el estado de la mesa original y crear una nueva mesa en la base de datos para representar la segunda mesa
+        // ...
+
+        console.log("Mesa dividida correctamente.");
+    });
+}
+
+
+</script>
+
+
+    
+    </body>
+    </html>
+    

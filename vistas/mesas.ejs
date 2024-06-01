@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menú del Restaurante</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Protest+Revolution&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> 
+<link rel="stylesheet" href="/BACKEND/estilo.mesas.css">
+
+  
+<header>
+    <div class="header-container">
+        <h1>MENU MASTER</h1>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="/pagina2">Inicio</a></li>
+            <li><a href="#">Productos</a></li>
+            <li><a href="#">Servicios</a> </li>        
+            <li><a href="#">Contacto</a></li>
+        </ul>
+
+    </nav>
+</header>
+<section class="contenedor_max">
+<div id="pedido-actual-container">
+    <div id="pedido-actual">
+        <h2>Pedido Actual</h2>
+        <ul id="pedido-lista">
+            <!-- Aquí se mostrarán los productos del pedido actual -->
+        </ul>
+        <button id="confirmar-pedido-btn">Confirmar Pedido</button>
+    </div>
+    
+
+
+    <div id="menu-content">
+        <!-- Aquí se cargarán los productos del menú -->
+    </div>
+</div>
+
+<div class="carousel-container">
+    <button class="carousel-item" onclick="showMenu('entradas')">
+        <img src="/BACKEND/img/entradas2.jpeg" alt="Entradas">
+        <div class="overlay">
+            <div class="overlay-text">Entradas</div>
+        </div>            
+    </button>
+    <button class="carousel-item" onclick="showMenu('platos-fuertes')">
+        <img src="/BACKEND/img/platosfuertes.jpg" alt="platos fuertes">
+        <div class="overlay">
+            <div class="overlay-text">Platos Fuertes</div>
+        </div>
+    </button>
+    <button class="carousel-item" onclick="showMenu('asados')">
+        <img src="/BACKEND/img/asados-333x230.jpg" alt="asados">
+        <div class="overlay">
+            <div class="overlay-text">Asados</div>
+        </div>
+    </button>
+    <button class="carousel-item" onclick="showMenu('bebidas')">
+        <img src="/BACKEND/img/bebidas.jpg"  alt="bebidas">
+        <div class="overlay">
+            <div class="overlay-text">Bebidas</div>
+        </div>
+    </button>
+    <button class="carousel-item" onclick="showMenu('gourmet')">
+        <img src="/BACKEND/img/gourmet.jpeg"  alt="gourmet">
+        <div class="overlay">
+            <div class="overlay-text">Gourmet</div>
+        </div>
+    </button>
+</div>
+
+</section>
+<script>
+    // Función para mostrar los productos de una sección específica del menú
+    function showMenu(sectionId) {
+        var menuContent = document.getElementById("menu-content");
+        menuContent.innerHTML = ""; // Limpiar contenido actual
+
+        // Ejemplo de menú ficticio
+        var menu = {
+            "entradas": [
+                { name: "Ensalada César", price: 8.99 },
+                { name: "Tortilla Española", price: 7.50 },
+                { name: "Bruschetta", price: 6.75 }
+            ],
+            "platos-fuertes": [
+                { name: "Filete de Salmón", price: 15.99 },
+                { name: "Bistec a la Parrilla", price: 18.50 },
+                { name: "Pollo Marsala", price: 14.75 }
+            ],
+            "asados": [
+                { name: "Costillas BBQ", price: 20.99 },
+                { name: "Parrillada Mixta", price: 22.50 },
+                { name: "Brochetas de Carne", price: 18.75 }
+            ],
+            "bebidas": [
+                { name: "Cerveza Artesanal", price: 5.99 },
+                { name: "Vino Tinto (Copa)", price: 8.50 },
+                { name: "Refresco", price: 2.75 }
+            ],
+            "gourmet": [
+                { name: "Foie Gras", price: 25.99 },
+                { name: "Carpaccio de Res", price: 19.50 },
+                { name: "Langosta Thermidor", price: 35.75 }
+            ]
+        };
+
+        // Mostrar productos de la sección seleccionada
+        menu[sectionId].forEach(function(product) {
+            var productCard = document.createElement("div");
+            productCard.classList.add("product-card");
+
+            var title = document.createElement("div");
+            title.classList.add("product-title");
+            title.textContent = product.name;
+            productCard.appendChild(title);
+
+            var price = document.createElement("div");
+            price.classList.add("product-price");
+            price.textContent = "$" + product.price.toFixed(2);
+            productCard.appendChild(price);
+
+            var quantityInput = document.createElement("input");
+            quantityInput.setAttribute("type", "number");
+            quantityInput.classList.add("quantity-input");
+            quantityInput.setAttribute("placeholder", "Cantidad");
+            productCard.appendChild(quantityInput);
+
+            var detailsInput = document.createElement("input");
+            detailsInput.setAttribute("type", "text");
+            detailsInput.classList.add("details-input");
+            detailsInput.setAttribute("placeholder", "Detalles");
+            productCard.appendChild(detailsInput);
+
+            var addToOrderBtn = document.createElement("button");
+            addToOrderBtn.classList.add("add-to-order");
+            addToOrderBtn.textContent = "Agregar al Pedido";
+            addToOrderBtn.onclick = function() {
+                addToOrder(sectionId, product.name, product.price);
+            };
+            productCard.appendChild(addToOrderBtn);
+
+            menuContent.appendChild(productCard);
+        });
+    }
+
+    // Función para agregar un producto al pedido
+    function addToOrder(sectionId, productName, price) {
+        var quantityInput = document.querySelector(".quantity-input");
+        var detailsInput = document.querySelector(".details-input");
+        var quantity = parseInt(quantityInput.value);
+        var details = detailsInput.value;
+
+        if (isNaN(quantity) || quantity <= 0) {
+            alert("Por favor, ingrese una cantidad válida.");
+            return;
+        }
+
+        // Aquí puedes hacer lo que necesites con el producto agregado al pedido
+        console.log("Se agregó al pedido:", productName, "Cantidad:", quantity, "Detalles:", details);
+
+        // Mostrar el producto agregado en la lista del pedido actual
+        var pedidoLista = document.getElementById("pedido-lista");
+        var listItem = document.createElement("li");
+        listItem.textContent = productName + " - Cantidad: " + quantity + " - Detalles: " + details;
+        pedidoLista.appendChild(listItem);
+    }
+</script>
+
+</body>
+</html>

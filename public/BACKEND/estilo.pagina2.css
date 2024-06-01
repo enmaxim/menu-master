@@ -1,0 +1,251 @@
+@import url("https://unpkg.com/open-props") layer(design.system);
+
+@layer demo.support {
+  html {
+    background-color: #14171E;
+    height: 100%;
+  }
+
+  body {
+    min-height: 100%;
+    display: grid;
+    place-content: center;
+    padding: var(--size-5);
+    gap: var(--size-5);
+    
+  }
+
+  header {
+    background-color: #f3f3f30e;
+    color: #0a0707;
+    padding: 10px 0;
+    width: auto;
+    height: auto;
+    
+}
+
+.header-container {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    text-align: center;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 10px;
+    color: #fff;
+}
+
+nav ul li  {
+    color: #000000;
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #5555557d;
+    border-radius: 5px;
+    .protest-revolution-regular {
+      font-family: "Protest Revolution", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+    }
+}
+
+  h1  {
+    color: white;
+    text-align: center;
+    margin: 0;
+    .protest-revolution-regular {
+      font-family: "Protest Revolution", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+    }
+    
+
+  }
+
+  a {
+    color: lavender;
+    text-decoration: none;
+    font-family: 'Protest Revolution', sans-serif;
+    .protest-revolution-regular {
+      font-family: "Protest Revolution", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+    }
+  }
+
+  .container {
+    text-align: center; /* Centrar los elementos dentro del contenedor */
+  }
+
+  :root {
+    --img-1: url('img/area 1.png');
+    --img-2: url('img/area 2.png');
+    --img-3: url('img/Bar.jpg');
+    --img-4: url('img/terraza.png');
+    --img-5: url('img/zona especial.png');
+    --img-6: url('img/giardino.jpg');
+  }
+  fieldset {
+    width: 80vw;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: 50vh;
+    gap: var(--size-3);
+    border: none;
+    color: #fff;
+  }
+
+  label {
+    cursor: pointer;
+    border-radius: var(--radius-4);
+    margin: 0 10px; /* Añadir espacio entre cada elemento */
+    background-repeat: no-repeat; /* Evitar que las imágenes se repitan */
+  }
+
+  label:focus-within {
+    outline: 1px solid #fff;
+    outline-offset: 5px;
+    font-size: 30px; 
+  }
+
+  input[type="radio"] {
+    opacity: 0;
+  }
+ }
+
+ 
+.button-label {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    cursor: pointer;
+}
+.button-label span {
+    margin-top: 5px;
+}
+
+fieldset {
+  grid-template-columns:
+    var(--col-1, 1fr)
+    var(--col-2, 1fr)
+    var(--col-3, 1fr)
+    var(--col-4, 1fr)
+    var(--col-5, 1fr);
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: grid-template-columns 2s var(--ease-spring-5);
+  }
+
+  &:has(label:nth-child(1) > input:checked) {
+    --col-1: 5fr;
+    --col-2: 3fr;
+  }
+
+  &:has(label:nth-child(2) > input:checked) {
+    --col-1: 2fr;
+    --col-2: 5fr;
+    --col-3: 2fr;
+  }
+
+  &:has(label:nth-child(3) > input:checked) {
+    --col-2: 2fr;
+    --col-3: 5fr;
+    --col-4: 2fr;
+  }
+
+  &:has(label:nth-child(4) > input:checked) {
+    --col-3: 2fr;
+    --col-4: 5fr;
+    --col-5: 2fr;
+  }
+
+  &:has(label:nth-child(5) > input:checked) {
+    --col-4: 3fr;
+    --col-5: 5fr;
+  }
+}
+
+label:nth-child(1) {
+    background-image: var(--img-1);
+  }
+
+  label:nth-child(2) {
+    background-image: var(--img-2);
+  }
+
+  label:nth-child(3) {
+    background-image: var(--img-3);
+  }
+
+  label:nth-child(4) {
+    background-image: var(--img-4);
+  }
+
+  label:nth-child(5) {
+    background-image: var(--img-5);
+  }
+
+  label:nth-child(6) {
+    background-image: var(--img-6);
+  }
+
+  label {
+    background-position: center;
+    background-size: auto 125%;
+  }
+
+
+  .image-label {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .image-label input[type="radio"] {
+    display: none; /* Oculta el input de radio */
+  }
+  
+  .image-label img {
+    display: block;
+    width: 100%; /* Ajusta el ancho de la imagen al 100% del label */
+  }
+  
+  .button-label {
+    position: relative; /* Agrega posición relativa al contenedor */
+}
+
+.button-label span {
+    position: absolute;
+    font-size:25px;
+    bottom: 0; /* Alinea el texto en la parte inferior */
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-bottom-left-radius: 5px; /* Ajusta el radio de borde inferior */
+    border-bottom-right-radius: 5px; /* Ajusta el radio de borde inferior */
+}
+
+.button-label:hover span, /* Hacer que el texto aparezca al pasar el mouse */
+.button-label:focus-within span { /* Hacer que el texto aparezca cuando el label tiene foco */
+    opacity: 1;
+}
+  
+  
+  

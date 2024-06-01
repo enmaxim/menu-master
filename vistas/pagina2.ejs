@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Bouncy Imagenes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lugrasimo&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Lugrasimo&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/BACKEND/estilo.pagina2.css">
+</head>
+
+<header>
+  <div class="header-container">
+      <h1>MENU MASTER</h1>
+  </div>
+
+  <nav>
+      <ul>
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#">Productos</a>
+              <ul>
+            
+              </ul>
+          </li>
+          <li><a href="#">Servicios</a>
+              <ul>
+                
+              </ul>
+          </li>
+          <li><a href="#">Contacto</a></li>
+      </ul>
+  
+</header>
+
+<body>
+
+    <div class="container">
+        <fieldset>
+            <!-- Cada label es un botón -->
+            <label class="button-label" style="--img: url(img/area1.png);" onclick="redirectTo('seccion_mesas')">
+            <span>AREA 1</span>
+            </label>
+            
+    
+            <label class="button-label" style="--img: url(img/area2.png);" onclick="redirectTo('seccion_mesas')">
+                <span>AREA 2</span>
+            </label>
+    
+            <label class="button-label" style="--img: url(img/Bar.jpg);" onclick="redirectTo('seccion_mesas')">
+                <span>BAR</span>
+            </label>
+    
+            <label class="button-label" style="--img: url(img/terraza.png);" onclick="redirectTo('seccion_mesas')">
+                <span>TERRAZA</span>
+            </label>
+    
+            <label class="button-label" style="--img: url(img/giardino.jpg);" onclick="redirectTo('seccion_mesas')">
+                <span>OTRAS</span>
+            </label>
+        </fieldset>
+    </div>
+
+
+<script>
+    // Función para redireccionar a la URL especificada
+    function redirectTo(url) {
+        window.location.href = url;
+    }
+</script>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
